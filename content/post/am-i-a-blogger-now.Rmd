@@ -1,0 +1,18 @@
+---
+title: Am I a Blogger now?
+author: Hacker Nik
+date: '2018-08-01'
+slug: am-i-a-blogger-now
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+Is this thing working?
+
+I'll try out 1+1 with R:
+```{r}
+1+1
+```
