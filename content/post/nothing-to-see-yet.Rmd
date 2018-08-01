@@ -1,0 +1,13 @@
+---
+title: Nothing to see yet
+author: Niklas Johannes
+date: '2018-08-01'
+slug: nothing-to-see-yet
+categories: []
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+Thanks for popping by my website. I just created it, so expect to see the first post soon.

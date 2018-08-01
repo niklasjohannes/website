@@ -5,36 +5,37 @@ active = true
 date = 2016-04-20T00:00:00
 
 # Order that this section will appear in.
-weight = 5
+weight = 1
 
 # List your academic interests.
-[interests]
-  interests = [
-    "Artificial Intelligence",
-    "Computational Linguistics",
-    "Information Retrieval"
-  ]
+#[interests]
+  #interests = [
+    #"Mobile Technology",
+    #"Performance",
+    #"Cognitive Control",
+    #"Attention"
+  #]
 
 # List your qualifications (such as academic degrees).
-[[education.courses]]
-  course = "PhD in Artificial Intelligence"
-  institution = "Stanford University"
-  year = 2012
+#[[education.courses]]
+  #course = "PhD in Behavioral Sciences"
+  #institution = "Radboud University"
+  #year = 2019
 
 [[education.courses]]
-  course = "MEng in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2009
+  course = "MSc Communication (Research Master)"
+  institution = "University of Amsterdam"
+  year = 2015
 
 [[education.courses]]
-  course = "BSc in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2008
+  course = "BA Media and Communication with Minor in German Literature"
+  institution = "University of Mannheim"
+  year = 2013
  
 +++
 
-# Biography
+# About
 
-Lena Smith is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+I'm currently a PhD candidate at the Behavioural Science Institute. My main research interests concern mobile  technologies, in particular, whether the permanent availability via smartphones can lead to a state of vigilance.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate. 
+The project deals with the effects of such vigilance on cognitive processes and the question how these effects might occur. I mostly do experiments and surveys. My supervisors are [Harm Veling] (https://harmveling.wordpress.com/) and [Moniek Buijzen] (https://www.ru.nl/personen/buijzen-m/).
