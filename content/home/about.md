@@ -38,4 +38,4 @@ weight = 1
 
 I'm currently a PhD candidate at the Behavioural Science Institute. My main research interests concern mobile  technologies, in particular, whether the permanent availability via smartphones can lead to a state of vigilance.
 
-The project deals with the effects of such vigilance on cognitive processes and the question how these effects might occur. I mostly do experiments and surveys. My supervisors are [Harm Veling] (https://harmveling.wordpress.com/) and [Moniek Buijzen] (https://www.ru.nl/personen/buijzen-m/).
+The project deals with the effects of such vigilance on cognitive processes and the question how these effects might occur. I mostly conduct experiments and surveys. My supervisors are [Harm Veling] (https://harmveling.wordpress.com/) and [Moniek Buijzen] (https://www.ru.nl/personen/buijzen-m/).
