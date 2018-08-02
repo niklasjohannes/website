@@ -14,5 +14,14 @@ subtitle = ""
 weight = 3
 
 +++
+**2018 / 2019**
 
-Content to follow.
+- Research Project 3: Thesis, Bachelor Psychology (Supervisor)
+
+**2017 / 2018**
+
+- Introduction to Psychology: Part B, Bachelor Psychology (Workgroup Instructor)
+- Research Project 3: Experiments, Bachelor Communication Science (Lecturer)
+- Research Project 3: Thesis, Bachelor Psychology (Supervisor)
+- Minor Research Master Project, Research Master Behavioral Science (Supervisor)
+- Research Topics in Communication Science, Bachelor Communication Science (Lecturer)

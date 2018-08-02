@@ -26,7 +26,7 @@ paginate = 10
 disqusShortname = ""
 
 # Enable analytics by entering your Google Analytics tracking ID
-googleAnalytics = ""
+googleAnalytics = "UA-123281410-1"
 
 # Default language to use (if you setup multilingual support)
 defaultContentLanguage = "en"
@@ -60,7 +60,7 @@ enableGitInfo = false
 
   # Font style.
   #   Choose from `default`, `classic`, or `playfair`.
-  font = "classic"
+  font = "default"
 
   # Your details.
   name = "Niklas Johannes"
@@ -299,14 +299,14 @@ enableGitInfo = false
 [[menu.main]]
   name = "Contact"
   url = "#contact"
-  weight = 5
+  weight = 6
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
-# [[menu.main]]
-#    name = "CV"
-#    url = "files/cv.pdf"
-#    weight = 7
+[[menu.main]]
+  name = "CV"
+  url = "files/AcademicCV_NiklasJohannes.pdf"
+  weight = 5
 
 # Search.
 [params.search]
