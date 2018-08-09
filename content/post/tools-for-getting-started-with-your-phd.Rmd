@@ -68,7 +68,7 @@ Once you have selected a topic that interests you, **it's important to keep trac
 
 ![](/img/RSS_JEPGeneral.jpg)
 
-Once you find it, you can easily copy-paste that link into an RSS-reader. I use [Feedly](https://feedly.com/)^[There are many other RSS readers out there. Just try out a couple.] Here you can enter the RSS link into the search field and follow that feed. I recommend to this for all major journals that are relevant for you. Feedly has the advantage that you can group your journals by tags.
+Once you find it, you can easily copy-paste that link into an RSS-reader. I use [Feedly](https://feedly.com/)^[Thanks to Michael Zoltak for introducing me. Of course, there are many other RSS readers out there. Just try out a couple.] Here you can enter the RSS link into the search field and follow that feed. I recommend to this for all major journals that are relevant for you. Feedly has the advantage that you can group your journals by tags.
 
 ![](/img/Feedly.png)
 
