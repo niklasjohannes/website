@@ -45,8 +45,8 @@ tags = []
 # Links (optional).
 #url_pdf = "#"
 url_preprint = "https://psyarxiv.com/rxsf7/"
-#url_code = "#"
-#url_dataset = "#"
+url_code = "https://osf.io/g8kbu/?view_only=b0329498fa4a45f182a38f4c3bfcab69"
+url_dataset = "https://osf.io/g8kbu/?view_only=b0329498fa4a45f182a38f4c3bfcab69"
 #url_project = "#"
 #url_slides = "#"
 #url_video = "#"
