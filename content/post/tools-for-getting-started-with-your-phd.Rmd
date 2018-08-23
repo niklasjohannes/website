@@ -17,13 +17,13 @@ output:
 
 The new academic semester is almost upon us, and that means lots of new grad students. As I'm entering the fourth and final year of my own PhD, this got me thinking: **What tools would I have liked to know about when I started?**
 
-What do I mean with this? Well, see for yourself whether you recognize any of following behaviors:
+What do I mean with this? Well, see for yourself whether you recognize any of the following behaviors:
 
 * You type references by hand -- over and over and over.
 * You manually recode variables in SPSS and forget what you did about half an hour later.
 * Everyone in your department is talking about this crazy new paper that came out. You pretend you have to go to the bathroom and frantically fire up Google Scholar on your phone because somehow you completely missed this paper.
 * Your left eye starts twitching nervously every time you see anything even resembling a line of code.
-* You want to do a cool study, but the data cannot be analyzed with the good old ANOVA you're familiar with. Instead, you run the study a different way so the data fits the analysis you know.
+* You want to do a cool study, but the data cannot be analyzed with the good old ANOVA you're familiar with. Instead, you run the study a different way so the data fit the analysis you know.
 * You have heard of this thing called preregistration and open science, but it sounds frightening and complicated.
 
 If you are the beginning of your PhD and you recognize one or multiple of those behaviors, then please keep on reading. I believe it is crucial you start using these tools **early in your PhD**, because they will make your life so much easier.
@@ -68,7 +68,7 @@ Once you have selected a topic that interests you, **it's important to keep trac
 
 ![](/img/RSS_JEPGeneral.jpg)
 
-Once you find it, you can easily copy-paste that link into an RSS-reader. I use [Feedly](https://feedly.com/)^[Thanks to Michael Zoltak for introducing me. Of course, there are many other RSS readers out there. Just try out a couple.] Here you can enter the RSS link into the search field and follow that feed. I recommend to this for all major journals that are relevant for you. Feedly has the advantage that you can group your journals by tags.
+Once you find it, you can easily copy-paste that link into an RSS-reader. I use [Feedly](https://feedly.com/).^[Thanks to Michael Zoltak for introducing me. Of course, there are many other RSS readers out there. Just try out a couple.] Here you can enter the RSS link into the search field and follow that feed. I recommend to this for all major journals that are relevant for you. Feedly has the advantage that you can group your journals by tags.
 
 ![](/img/Feedly.png)
 
@@ -141,7 +141,7 @@ Yeah. That's right. You might tell yourself "I am not good at stats" or "SPSS ca
 > teaching, your students will be ill-prepared when they first encounter their own messy datasets.
 
 
-In the light of the replication crisis, **reproducible analysis has become gold standard**. It is just superior to write a script from data import to final analysis, and you can achieve this easier with a code-based program than with the point-and-click interface of SPSS.
+In the light of the replication crisis, **reproducible analysis has become the gold standard**. It is just superior to write a script from data import to final analysis, and you can achieve this easier with a code-based program than with the point-and-click interface of SPSS.
 
 ![](https://www.r-project.org/logo/Rlogo.svg){width=200px height=200px}
 
@@ -149,7 +149,7 @@ In addition, R is free, open source, and an increasing number of academics make 
 
 ## Freshen up your stats
 
-If you identify with one of those sentences above about how stats are just not your thing, well, there is bad news and there is good news. The bad news is statistics are the tool with which you answer your research question. You would not trust a dentist who does not completely understand how to operate their drill, right? In the similar way, you need to understand your main tool because **you will need stats for your entire PhD**^[Assuming you do quantitative, empirical work.].
+If you identify with one of those sentences above about how stats are just not your thing, well, there is bad news and there is good news. The bad news is statistics are the tool with which you answer your research question. You wouldn't trust a dentist who does not completely understand how to operate their drill, right? In the similar way, you need to understand your main tool because **you will need stats for your entire PhD**^[Assuming you do quantitative, empirical work.].
 
 But here's the good news: Stats are not that bad. Really. I considered myself one of those people who are not "good with stats". But thanks to the internet I got over that feeling.^[Don't get me wrong, I'm still not good, but passable enough to be confident that my analyses are correct. And that's all you need.]  And there are tons of excellent online resources to help you get there, too.
 
