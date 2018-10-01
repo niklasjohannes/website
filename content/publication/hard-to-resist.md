@@ -43,7 +43,7 @@ projects = []
 tags = []
 
 # Links (optional).
-#url_pdf = "#"
+url_pdf = "files/Johannes et al. (2018) - Hard to resist.pdf"
 url_preprint = "https://psyarxiv.com/tnmq3/"
 url_code = "https://osf.io/465cy/"
 url_dataset = "https://osf.io/465cy/"
