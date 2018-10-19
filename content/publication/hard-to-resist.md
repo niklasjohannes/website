@@ -44,7 +44,7 @@ tags = []
 
 # Links (optional).
 #url_pdf = "files/Johannes et al. (2018) - Hard to resist.pdf"
-#ural_pdf = "https://econtent.hogrefe.com/doi/10.1027/1864-1105/a000248"
+url_pdf = "https://econtent.hogrefe.com/doi/10.1027/1864-1105/a000248"
 url_preprint = "https://psyarxiv.com/tnmq3/"
 url_code = "https://osf.io/465cy/"
 url_dataset = "https://osf.io/465cy/"
