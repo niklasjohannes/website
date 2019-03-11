@@ -36,6 +36,8 @@ weight = 1
 
 # About
 
-I'm currently a PhD candidate at the Behavioural Science Institute. My main research interests concern mobile  technologies, in particular, whether the permanent availability via smartphones can lead to a state of vigilance.
+I'm a PhD candidate at the Behavioural Science Institute, Radboud University, Nijmegen. My main research interests concern mobile technologies, in particular the effects of permanent availability via smartphones. At the same time, I'm a strong supporter of preregistration and Open Science.
 
-The project deals with the effects of such vigilance on cognitive processes and the question how these effects might occur. I mostly conduct experiments and surveys. My supervisors are [Harm Veling] (https://harmveling.wordpress.com/) and [Moniek Buijzen] (https://www.ru.nl/personen/buijzen-m/).
+The PhD project deals with the effects of smartphone use on cognitive processes and the question if and how these effects might occur. I mostly conduct laboratory experiments, surveys, as well as field studies combining experience sampling and smartphone logging. My supervisors are [Harm Veling] (https://harmveling.wordpress.com/) and [Moniek Buijzen] (https://www.ru.nl/personen/buijzen-m/).
+
+Currently, I'm visiting the [Healthy Cognition Lab] (healthycognitionlab.org/) at the School of Psychology at University of Glasgow. 

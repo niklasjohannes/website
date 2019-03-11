@@ -1,10 +1,10 @@
 +++
-title = "Smartphone apps are not associated with reward, but the smartphone itself may be rewarding"
-date = "2018-08-01T00:00:00"
+title = "Social smartphone apps do not capture attention despite their perceived high reward value"
+date = "2019-08-01T00:00:00"
 draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Johannes, N.", "Dora, J.", "Rusz, D."]
+authors = ["Johannes, N.", "Dora, J.", "& Rusz, D. (in press)"]
 
 # Publication type.
 # Legend:
@@ -16,14 +16,14 @@ authors = ["Johannes, N.", "Dora, J.", "Rusz, D."]
 # 5 = Book
 # 6 = Book section
 # 7 = Preprint
-publication_types = ["7"]
+publication_types = ["2"]
 
 # Publication name and optional abbreviated version.
-publication = "https://doi.org/10.31234/osf.io/rxsf7"
+publication = "*Collabra: Psychology*"
 #publication_short = ""
 
 # Abstract and optional shortened version.
-abstract = "Smartphones have been shown to distract people from their main tasks (e.g., studying, working), but the psychological mechanisms underlying these distractions are not clear yet. In the current study, we tested whether the distracting nature of smartphones stems from their high associated (social) reward value. Participants (N = 117) performed a visual search task while they were distracted by (a) high social reward cues (e.g., Facebook app icon + notification sign), (b) low social reward cues (e.g., Facebook app icon), and (c) no social reward cues (e.g., Weather app icon). We further expected that the distraction effect would be more pronounced for participants who had been deprived of using their phone. Contrary to our hypothesis, we found that smartphone cues that were presumably associated with high (vs. low or no) social rewards did not impair visual search speed. Surprisingly, deprived participants were faster than non-deprived participants. These results indicate that mere smartphone app icons are not necessarily associated with rewards. However, the absence of a smartphone may increase motivation which again may boost performance."
+abstract = "Smartphones have been shown to distract people from their main tasks (e.g., studying, working), but the psychological mechanisms underlying these distractions are not clear yet. In a preregistered experiment, we tested whether the distracting nature of smartphones stems from their high associated (social) reward value. Participants (N = 117) performed a visual search task while they were distracted by (a) high social reward apps (e.g., Facebook app icon + notification sign), (b) low social reward apps (e.g., Facebook app icon), and (c) no social reward apps (e.g., Weather app icon). We expected that high social reward app icons would slow down search, especially when people were deprived of their smartphones. Surprisingly, high social reward (vs. low or no social reward) apps did not impair visual search performance, yet in a survey (N = 158) participants indicated to perceive these icons as more rewarding. Our results demonstrate that even if people perceive social smartphone apps as more rewarding than nonsocial apps, this may not manifest in behavior."
 
 # Featured image thumbnail (optional)
 image_preview = ""
