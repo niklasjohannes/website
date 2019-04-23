@@ -56,7 +56,7 @@ enableGitInfo = false
 [params]
   # Color theme.
   #   Choose from `default`, `ocean`, `forest`, `coffee`, `dark`, or `1950s`.
-  color_theme = "dark"
+  color_theme = "default"
 
   # Font style.
   #   Choose from `default`, `classic`, or `playfair`.
@@ -64,7 +64,7 @@ enableGitInfo = false
 
   # Your details.
   name = "Niklas Johannes"
-  role = "PhD Candidate Media Psychology"
+  role = "PhD Candidate Behavioral Science"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
