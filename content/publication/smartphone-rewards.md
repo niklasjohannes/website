@@ -4,7 +4,7 @@ date = "2019-03-01T00:00:00"
 draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Johannes, N.", "Dora, J.", "& Rusz, D. (in press)"]
+authors = ["Johannes, N.", "Dora, J.", "& Rusz, D. (2019)"]
 
 # Publication type.
 # Legend:
@@ -43,7 +43,7 @@ projects = []
 tags = []
 
 # Links (optional).
-#url_pdf = "#"
+url_pdf = "files/Johannes et al. (2019) - Social smartphone apps.pdf"
 url_preprint = "https://psyarxiv.com/rxsf7/"
 url_code = "https://osf.io/g8kbu/?view_only=b0329498fa4a45f182a38f4c3bfcab69"
 url_dataset = "https://osf.io/g8kbu/?view_only=b0329498fa4a45f182a38f4c3bfcab69"
