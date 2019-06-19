@@ -27,6 +27,9 @@ I explain why these error bars are wrong and end with calculating and visualizin
 If you're not interested in the learning process, feel free to immediately go to the final header. 
 This post closely follows the logic outlined by Ryan Hope for his `Rmisc` package [here](http://www.cookbook-r.com/Graphs/Plotting_means_and_error_bars_(ggplot2)/).
 
+**UPDATE: Thanks to Brenton Wiernik who [pointed out](https://twitter.com/bmwiernik/status/1140975895706054657?s=20) that the Morey method described below is not without criticism. 
+I'll update this post soon.**
+
 # Creating data
 
 Alright, let's create a data set that has the typical structure of an experiment with a within-participants factor and multiple trials per factor level. 
