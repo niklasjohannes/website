@@ -1,0 +1,15 @@
+# Font style metadata
+name = "custom_font"
+
+# Optional Google font URL
+google_fonts = "Poppins"
+
+# Font families
+heading_font = "Poppins"
+body_font = "Poppins"
+nav_font = "Poppins"
+mono_font = "Poppins"
+
+# Font size
+font_size = "18"
+font_size_small = "14"
