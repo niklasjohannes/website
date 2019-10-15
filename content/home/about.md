@@ -8,19 +8,21 @@ date = 2016-04-20T00:00:00
 weight = 1
 
 # List your academic interests.
-#[interests]
-  #interests = [
-    #"Mobile Technology",
-    #"Performance",
-    #"Cognitive Control",
-    #"Attention"
-  #]
+[interests]
+  interests = [
+    "Mobile Technology",
+    "Performance",
+    "Well-Being",
+    "Cognitive Control",
+    "Open Science",
+    "Meta-Science"
+  ]
 
 # List your qualifications (such as academic degrees).
-#[[education.courses]]
-  #course = "PhD in Behavioral Sciences"
-  #institution = "Radboud University"
-  #year = 2019
+[[education.courses]]
+  course = "PhD in Behavioral Sciences"
+  institution = "Radboud University"
+  year = 2020
 
 [[education.courses]]
   course = "MSc Communication (Research Master)"
@@ -36,8 +38,6 @@ weight = 1
 
 # About
 
-I'm a PhD candidate at the Behavioural Science Institute, Radboud University, Nijmegen. My main research interests concern mobile technologies, in particular the effects of permanent availability via smartphones. At the same time, I'm a strong supporter of preregistration and Open Science.
+I'm a Postdoc in the [Healthy Cognition Lab] (healthycognitionlab.org/) at the University of Glasgow. Under the supervision of [Esther Papies](https://www.gla.ac.uk/schools/psychology/staff/estherpapies/), I investigate cognitive processes underlying health behavior and behavior change. 
 
-The PhD project deals with the effects of smartphone use on cognitive processes and the question if and how these effects might occur. I mostly conduct laboratory experiments, surveys, as well as field studies combining experience sampling and smartphone logging. My supervisors are [Harm Veling] (https://harmveling.wordpress.com/) and [Moniek Buijzen] (https://www.ru.nl/personen/buijzen-m/).
-
-Currently, I'm visiting the [Healthy Cognition Lab] (healthycognitionlab.org/) at the School of Psychology at University of Glasgow. 
+In parallel, I'm currently preparing to defend my PhD thesis from Behavioural Science Institute, Radboud University, Nijmegen. My thesis investigates effects of mobile technologies on performance and well-being. In my research, I follow Open Science practices. That means I preregister all studies and make materials, data, and analyses publicly available.

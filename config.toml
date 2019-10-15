@@ -13,7 +13,7 @@ title = "Niklas Johannes"
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
-copyright = "Niklas Johannes &copy; 2018"
+copyright = "Niklas Johannes &copy; 2019"
 
 theme = "hugo-academic"
 enableEmoji = true
@@ -64,18 +64,18 @@ enableGitInfo = false
 
   # Your details.
   name = "Niklas Johannes"
-  role = "PhD Candidate Behavioral Science"
+  role = "Postdoc"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-  organizations = [ { name = "Behavioural Science Institute, Radboud University Nijmegen", url = "https://www.ru.nl/bsi/" } ]
+  organizations = [ { name = "School of Psychology, University of Glasgow", url = "https://www.gla.ac.uk/schools/psychology/" } ]
 
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
-  email = "n.johannes@bsi.ru.nl"
-  address = "Montessorilaan 3, 6525 HR Nijmegen"
+  email = "niklas.johannes@glasgow.ac.uk"
+  address = "62 Hillhead Street, Room 519, G12 8QB Glasgow"
   office_hours = ""
-  phone = "+31 (0) 24 3612322"
+  phone = ""
   skype = ""
   telegram = ""
 
@@ -251,10 +251,10 @@ enableGitInfo = false
     icon_pack = "ai"
     link = "https://scholar.google.com/citations?user=Mo0GR2QAAAAJ&hl=en&oi=ao"
 
-  #[[params.social]]
-    #icon = "github"
-    #icon_pack = "fa"
-    #link = "//github.com/gcushen"
+  [[params.social]]
+    icon = "github"
+    icon_pack = "fa"
+    link = "//github.com/niklasjohannes"
 
   # Link to a PDF of your resume/CV from the About widget.
   # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
