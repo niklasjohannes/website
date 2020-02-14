@@ -40,4 +40,4 @@ weight = 1
 
 I'm a Postdoc in the [Healthy Cognition Lab] (healthycognitionlab.org/) at the University of Glasgow. Under the supervision of [Esther Papies](https://www.gla.ac.uk/schools/psychology/staff/estherpapies/), I investigate cognitive processes underlying health behavior and behavior change. 
 
-In parallel, I'm currently preparing to defend my PhD thesis from Behavioural Science Institute, Radboud University, Nijmegen. My thesis investigates effects of mobile technologies on performance and well-being. In my research, I follow Open Science practices. That means I preregister all studies and make materials, data, and analyses publicly available.
+During my PhD, I investigated effects of mobile technologies on performance and well-being. In my research, I follow Open Science practices. That means I preregister all studies and make materials, data, and analyses publicly available.
