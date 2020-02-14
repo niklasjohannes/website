@@ -282,9 +282,14 @@ enableGitInfo = false
   weight = 2
 
 [[menu.main]]
+  name = "Dissertation"
+  url = "files/dissertation_niklas_johannes.pdf"
+  weight = 3
+
+[[menu.main]]
   name = "Posts"
   url = "#posts"
-  weight = 3
+  weight = 4
 
 #[[menu.main]]
   #name = "Projects"
@@ -294,19 +299,19 @@ enableGitInfo = false
 [[menu.main]]
   name = "Teaching"
   url = "#teaching"
-  weight = 4
+  weight = 5
 
 [[menu.main]]
   name = "Contact"
   url = "#contact"
-  weight = 6
+  weight = 7
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 [[menu.main]]
   name = "CV"
   url = "files/cv_niklas_johannes.pdf"
-  weight = 5
+  weight = 6
 
 # Search.
 [params.search]
