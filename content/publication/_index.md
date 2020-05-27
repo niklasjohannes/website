@@ -1,5 +1,5 @@
 +++
-title = "Publications and Talks"
+title = "Publications"
 date = 2017-01-01T00:00:00
 math = false
 highlight = false
@@ -16,5 +16,3 @@ list_format = 2
 image = ""
 caption = ""
 +++
-
-What happens if I do this?
