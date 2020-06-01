@@ -38,6 +38,6 @@ weight = 1
 
 # About
 
-I'm a Postdoc in the [Healthy Cognition Lab] (healthycognitionlab.org/) at the University of Glasgow. Under the supervision of [Esther Papies](https://www.gla.ac.uk/schools/psychology/staff/estherpapies/), I investigate cognitive processes underlying health behavior and behavior change. 
+I'm a Postdoc in the [Adolescent Well-Being in the Digital Age] (https://www.oii.ox.ac.uk/research/projects/programme-on-adolescent-well-being-in-the-digital-age/) program at the Oxford Internet Institute. Under the supervision of [Andrew Przybylski](https://www.oii.ox.ac.uk/people/andrew-przybylski/), I study the effects of technology use on well-being and performance. 
 
-During my PhD, I investigated effects of mobile technologies on performance and well-being. In my research, I follow Open Science practices. That means I preregister all studies and make materials, data, and analyses publicly available.
+My PhD had a similar topic: Here, I investigated effects of constant connectedness on performance and well-being. In my research, I follow Open Science practices. That means I preregister all studies and make materials, data, and analyses publicly available.
