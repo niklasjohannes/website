@@ -51,7 +51,7 @@ projects = []
 tags = []
 
 # Links (optional).
-url_pdf = "files/Evans et al. (2020) - Exploring the consistency and value of humour style profiles"
+url_pdf = "files/Evans et al. (2020) - Exploring the consistency and value of humour style profiles.pdf"
 url_preprint = "https://psyarxiv.com/b8g9z/"
 url_code = "https://osf.io/2gsmk/"
 url_dataset = "https://osf.io/2gsmk/"
