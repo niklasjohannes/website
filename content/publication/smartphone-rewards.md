@@ -29,7 +29,7 @@ abstract = "Smartphones have been shown to distract people from their main tasks
 image_preview = ""
 
 # Is this a selected publication? (true/false)
-selected = true
+selected = false
 
 # Projects (optional).
 #   Associate this publication with one or more of your projects.
