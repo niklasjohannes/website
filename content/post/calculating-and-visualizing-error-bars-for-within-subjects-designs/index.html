@@ -1,0 +1,350 @@
+---
+title: Calculating and visualizing error bars for within-subjects designs
+subtitle: 
+
+# Summary for listings and search engines
+summary: This post presents a tutorial for calculating within-subjects error bars with R.
+
+# Link this post with a project
+projects: []
+
+# Date published
+date: '2019-06-17T00:00:00Z'
+
+# Date updated
+lastmod: '2019-06-17T00:00:00Z'
+
+# Is this an unpublished draft?
+draft: false
+
+# Show this page in the Featured widget?
+featured: false
+
+# Featured image
+# Place an image named `featured.jpg/png` in this page's folder and customize its options here.
+# image:
+#   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/CpkOjOcXdUY)'
+#   focal_point: ''
+#   placement: 2
+#   preview_only: false
+
+authors:
+  - admin
+  
+# tags:
+#   - Academic
+
+categories:
+  - Tutorials
+  - Simulation
+---
+
+
+
+<div id="what-this-post-is-about" class="section level1">
+<h1>What this post is about</h1>
+<p>Personally, I find violin plots with error bars a great way to present repeated-measures data from experiments, as they show the data distribution as well as the uncertainty surrounding the mean.</p>
+<p>However, there is some confusion (at least for me) about how to correctly calculate error bars for within-subjects designs.
+Below, I present my learning process: First, how I’ve calculated the wrong error bars for a long time.
+I explain why these error bars are wrong and end with calculating and visualizing them correctly (I hope…).</p>
+<p>If you’re not interested in the learning process, feel free to immediately go to the final header.
+This post closely follows the logic outlined by Ryan Hope for his <code>Rmisc</code> package <a href="http://www.cookbook-r.com/Graphs/Plotting_means_and_error_bars_(ggplot2)/">here</a>.</p>
+<p><strong>UPDATE: Thanks to Brenton Wiernik who <a href="https://twitter.com/bmwiernik/status/1140975895706054657?s=20">pointed out</a> that the Morey method described below is not without criticism.
+I’ll update this post soon.</strong></p>
+</div>
+<div id="creating-data" class="section level1">
+<h1>Creating data</h1>
+<p>Alright, let’s create a data set that has the typical structure of an experiment with a within-participants factor and multiple trials per factor level.</p>
+<p>In this case, we create a data set with 30 participants, where each participant gives us a score on three conditions.
+Say there are trials as well, with each participant providing ten scores per condition.</p>
+<p>We start with defining the parameters for our data set: how many participants, the names of the three conditions (aka factor levels), how many trials (aka measurements) each participant provides per condition, and the means and standard deviations for each condition.
+We assume participants provide us with a score on a scale ranging from 0 to 100.</p>
+<pre class="r"><code>set.seed(42)
+
+library(Rmisc)
+library(tidyverse)
+library(truncnorm)</code></pre>
+<pre class="r"><code># number of participants
+pp_n &lt;- 30
+
+# three conditions
+conditions &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)
+
+# number of trials (measures per condition per participant)
+trials_per_condition &lt;- 10
+
+# condition A
+condition_a_mean &lt;- 40
+condition_a_sd &lt;- 22
+
+# condition B
+condition_b_mean &lt;- 45
+condition_b_sd &lt;- 17
+
+# condition C
+condition_c_mean &lt;- 50
+condition_c_sd &lt;- 21</code></pre>
+<p>Okay, next we generate the data.
+First, we have a tibble with 30 rows for each of the 30 participants (3 conditions x 10 trials = 30 rows per participant).</p>
+<pre class="r"><code>dat &lt;- tibble(
+  pp = factor(rep(1:(length(conditions) * trials_per_condition), each = pp_n)), 
+  condition = factor(rep(conditions, pp_n * trials_per_condition))
+)</code></pre>
+<p>However, simulating data for a condition across all participants based on the same underlying distribution disregards that there are differences between participants.
+If you know mixed-effects models, this will sound familiar to you: it’s probably not realistic to assume that each participant will show a similar mean for each condition, and a similar difference between conditions.</p>
+<p>Instead, it makes sense that a) each participant introduces systematic bias to their scores (e.g., <code>pp1</code> might generally give higher scores to all conditions than <code>pp2</code>, or <code>pp3</code> might show a larger difference between conditions than <code>pp4</code>), and b) there’s a bit of random error for everyone (e.g., sampling error).</p>
+<p>Thus, we try to simulate that error.</p>
+<pre class="r"><code>pp_error &lt;- tibble(
+  # recreate pp identifier
+  pp = factor(1:pp_n),
+  
+  # some bias for the means we use later
+  bias_mean = rnorm(pp_n, 0, 6),
+  
+  # some bias for the sd we use later
+  bias_sd = abs(rnorm(pp_n, 0, 3)), 
+)
+
+# some random error per trial
+error &lt;- rnorm(900, 0, 5)</code></pre>
+<p>Next, we simulate the whole data set.
+For each participant and condition, we sample ten trial scores.</p>
+<p>However, rather than sampling just from the mean and standard deviation we determined above for the respective condition, we also add the bias of each specific participant in their (1) means per condition and (2) variability around the means per condition.
+After that, we add the extra random error.</p>
+<p>Because our scores should fall within 0 and 100, we use a trunctuated normal distribution function from the <code>truncnorm</code> package.</p>
+<pre class="r"><code>dat &lt;-  left_join(dat, pp_error) %&gt;% # add the bias variables to the data set
+  add_column(., error) %&gt;% # add random error
+  group_by(pp, condition) %&gt;% 
+  mutate(
+    score = case_when(
+      # get 10 trials per participant and condition
+      condition == &quot;A&quot; ~ rtruncnorm(trials_per_condition, a = 0, b = 100, 
+                                    (condition_a_mean + bias_mean),
+                                    (condition_a_sd + bias_sd)), 
+      condition == &quot;B&quot; ~ rtruncnorm(trials_per_condition, a = 0, b = 100,
+                                    (condition_b_mean + bias_mean),
+                                    (condition_b_sd + bias_sd)),
+      condition == &quot;C&quot; ~ rtruncnorm(trials_per_condition, a = 0, b = 100, 
+                                    (condition_c_mean + bias_mean),
+                                    (condition_c_sd + bias_sd)), 
+      TRUE ~ NA_real_
+    )
+  ) %&gt;% 
+  mutate(score = score + error) %&gt;% # add random error
+  # because of error, some trials got outside boundary, clip them again here
+  mutate(
+    score = case_when(
+      score &lt; 0 ~ 0, 
+      score &gt; 100 ~ 100, 
+      TRUE ~ score
+    )
+  ) %&gt;% 
+  select(-bias_mean, -bias_sd, -error) # kick out variables we don&#39;t need anymore</code></pre>
+<p>If we take a look at the ten first trials of the first participant, we see that our simulation appears to have worked: there’s quite a lot of variation.</p>
+<pre><code>## # A tibble: 10 × 3
+## # Groups:   pp, condition [3]
+##    pp    condition score
+##    &lt;fct&gt; &lt;fct&gt;     &lt;dbl&gt;
+##  1 1     A          68.3
+##  2 1     B          61.1
+##  3 1     C          75.9
+##  4 1     A          59.0
+##  5 1     B          31.3
+##  6 1     C          59.1
+##  7 1     A          29.2
+##  8 1     B          47.4
+##  9 1     C          46.6
+## 10 1     A          34.9</code></pre>
+<p>Let’s have a look at the aggregated means and <em>SD</em>s.
+Indeed, there’s quite some variation around each condition per participant, so we have data that resemble messy real-world data.
+Let’s visualize those data.</p>
+<pre class="r"><code>dat %&gt;% 
+  group_by(pp, condition) %&gt;% 
+  summarise(agg_mean = mean(score), 
+            agg_sd = sd(score)) %&gt;% 
+  head(., n = 10)</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;pp&#39;. You can override using the `.groups`
+## argument.</code></pre>
+<pre><code>## # A tibble: 10 × 4
+## # Groups:   pp [4]
+##    pp    condition agg_mean agg_sd
+##    &lt;fct&gt; &lt;fct&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+##  1 1     A             53.4   29.0
+##  2 1     B             50.6   14.2
+##  3 1     C             62.7   12.1
+##  4 2     A             43.0   19.7
+##  5 2     B             43.0   16.2
+##  6 2     C             44.7   22.4
+##  7 3     A             52.5   25.3
+##  8 3     B             46.7   21.8
+##  9 3     C             59.8   17.3
+## 10 4     A             45.3   25.2</code></pre>
+</div>
+<div id="creating-a-violin-plot-with-wrong-errors-bars" class="section level1">
+<h1>Creating a violin plot (with wrong errors bars)</h1>
+<p>Creating the violin plot follows the same logic as all other <code>ggplot2</code> commands.</p>
+<pre class="r"><code>ggplot(dat, aes(x = condition, y = score)) + 
+  geom_violin()</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/first_violin-1.png" width="672" /></p>
+<p>We can already see that the group means seem to increase from left to right, just as we specified above.
+To make it easier to see that, we need to add a second layer, namely the means plus error bars.
+<code>ggplot</code> doesn’t take those from the raw data, but we need to provide them by calculating and storing means and standard error ourselves.
+We can then feed those calculations to the ggplot layer.</p>
+<p>If you’re like me, you had to <a href="https://en.wikipedia.org/wiki/Standard_error">look up</a> the formula for the standard error.
+Here it is:</p>
+<p><span class="math display">\[SE = \frac{SD} {\sqrt{n}}\]</span></p>
+<p>Thankfully, the <code>summarySE</code> command from the <code>Rmisc</code> by Ryan Hope calculates the <em>SE</em> for us, plus the 95% CI interval around the <em>SE</em>.</p>
+<pre class="r"><code>dat_summary &lt;- summarySE(dat, 
+                         measurevar = &quot;score&quot;, 
+                         groupvars = &quot;condition&quot;)
+
+dat_summary</code></pre>
+<pre><code>##   condition   N    score       sd       se       ci
+## 1         A 300 42.11566 21.97562 1.268763 2.496837
+## 2         B 300 45.89995 19.77976 1.141985 2.247347
+## 3         C 300 50.47729 22.07185 1.274319 2.507770</code></pre>
+<p>Okay, now that we have the means and standard errors per group, let’s put them on top of the violins.</p>
+<pre class="r"><code>ggplot(dat, aes(x = condition, y = score)) + 
+  geom_violin() + 
+  geom_point(aes(y = score), data = dat_summary, color = &quot;black&quot;) +
+  geom_errorbar(aes(y = score, ymin = score - ci, ymax = score + ci),
+                    color = &quot;black&quot;, width = 0.05, data = dat_summary)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/second_violin-1.png" width="672" /></p>
+<p>Cool, at this point it looks like we’re done.
+<strong>Except that we’re not.</strong><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+What’s going on?</p>
+<p>Let’s have a look at the summary statistic again:</p>
+<pre class="r"><code>dat_summary</code></pre>
+<pre><code>##   condition   N    score       sd       se       ci
+## 1         A 300 42.11566 21.97562 1.268763 2.496837
+## 2         B 300 45.89995 19.77976 1.141985 2.247347
+## 3         C 300 50.47729 22.07185 1.274319 2.507770</code></pre>
+<p>Inspecting <em>N</em> shown by <code>summarySE</code>, we see that the summary statistics take all 300 rows per condition (30 participants x 10 trials) into account when calculating the standard error.
+The formula once more:</p>
+<p><span class="math display">\[SE = \frac{SD} {\sqrt{n}}\]</span></p>
+<p>By increasing the denominator<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, we artificially decrease the size of the <em>SE</em>, although we know that we don’t have 300 participants.
+We have 30 participants.
+This is crucial: we want to summarize the variability for these 30 participants, not for all observations.</p>
+<p>This also means we should take a look at the <em>SD</em>s.
+Here’s the <a href="https://en.wikipedia.org/wiki/Standard_deviation">formula</a> for the standard deviation:</p>
+<p><span class="math display">\[SD = \sqrt{\frac{1} {N - 1} \sum_{i = 1}^{N} (x_i - \bar{x})^2}\]</span>
+Actually, the <em>SD</em>s we obtained from <code>dat_summary</code> are quite large, which makes sense because they summarize the variability of <strong>all</strong> observations – so all 300 trials per condition.
+That is, the formula above is sensitive to the considerable variability within each condition that we have introduced earlier in the simulation.</p>
+<p>Thus, the summary statistics that we calculated are not the ones we’re looking for<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.
+We want to summarize the variability of the 30 participants per condition, not the 300 observations per condition.
+We need to calculate <em>SE</em> taking into account that we know that we have multiple measurements per participant.</p>
+</div>
+<div id="creating-another-plot-with-error-bars-thatre-still-wrong" class="section level1">
+<h1>Creating another plot (with error bars that’re still wrong)</h1>
+<p>Thus, we first aggregate the data, so we calculate the <strong>average</strong> score per participant.</p>
+<pre class="r"><code>dat_agg &lt;- dat %&gt;% 
+  group_by(pp, condition) %&gt;% 
+  summarise(mean_agg = mean(score))</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;pp&#39;. You can override using the `.groups`
+## argument.</code></pre>
+<pre class="r"><code>head(dat_agg, n = 10)</code></pre>
+<pre><code>## # A tibble: 10 × 3
+## # Groups:   pp [4]
+##    pp    condition mean_agg
+##    &lt;fct&gt; &lt;fct&gt;        &lt;dbl&gt;
+##  1 1     A             53.4
+##  2 1     B             50.6
+##  3 1     C             62.7
+##  4 2     A             43.0
+##  5 2     B             43.0
+##  6 2     C             44.7
+##  7 3     A             52.5
+##  8 3     B             46.7
+##  9 3     C             59.8
+## 10 4     A             45.3</code></pre>
+<p>Alright, now let’s calculate the means and <em>SE</em> again, based on these aggregated means.</p>
+<pre class="r"><code>dat_summary2 &lt;- summarySE(dat_agg, 
+                          measurevar = &quot;mean_agg&quot;, 
+                          groupvars = &quot;condition&quot;)
+
+dat_summary2</code></pre>
+<pre><code>##   condition  N mean_agg       sd       se       ci
+## 1         A 30 42.11566 9.308671 1.699523 3.475915
+## 2         B 30 45.89995 7.393815 1.349920 2.760896
+## 3         C 30 50.47729 9.290633 1.696230 3.469179</code></pre>
+<p>These are different than the previous ones (except for the means, of course).
+Besides the correct sample size of 30, you will also note that we now have smaller <em>SD</em>s per condition.
+That makes sense, because this time we obtain the <em>SD</em> based on a measure per participant per condition (only 30) which is a more accurate measure than providing the <em>SD</em> of all observations (the full 300).</p>
+<p>Let’s plot that one more time.</p>
+<pre class="r"><code>ggplot(dat, aes(x = condition, y = score)) + 
+  geom_violin() + 
+  geom_point(aes(y = mean_agg), data = dat_summary2, color = &quot;black&quot;) +
+  geom_errorbar(aes(y = mean_agg, ymin = mean_agg - ci, ymax = mean_agg + ci),
+                    color = &quot;black&quot;, width = 0.05, data = dat_summary2)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/third_violin-1.png" width="672" /></p>
+<p>Alright, are we done?
+<strong>Nope.</strong>
+<strong>Turns out those <em>SE</em>s are still not entirely correct.</strong></p>
+</div>
+<div id="the-last-plot-this-time-correct" class="section level1">
+<h1>The last plot (this time correct)</h1>
+<p>So what’s wrong the <em>SE</em>s this time?
+If we had a between-subjects design, so if the scores for each condition came from different participants,
+then we’d be done.
+However, we have a within-subjects design, meaning we have one aggregated score per participant per condition – so each participant has multiple scores.
+Remember how we introduced additional variability for each participant plus random error when we simulated the data?
+These two sources of variability are now conflated with the difference between conditions that we’re interested in plotting.
+This is similar to presenting the results of an independent samples t-test rather than a paired samples t-test.</p>
+<p>Consequently, we need a way to disentange the variability around the true difference between conditions from the variability of each participant and random error.
+Thankfully, people much smarter than I have done this already.
+I’m not going to pretend I understand exactly what he did, but <a href="http://pcl.missouri.edu/sites/default/files/morey.2008.pdf">Morey (2008)</a> describes such a method, and <a href="http://www.cookbook-r.com/Graphs/Plotting_means_and_error_bars_(ggplot2)/">Ryan Hope</a> has implemented Morey’s method in the <code>Rmisc</code> package that we’ve been using in this post.</p>
+<p>However, so far I called the <code>summarySE</code> function, which provides summary statistics for between-subjects designs.
+In other words, I made a mistake: that function was not appropriate for our design.</p>
+<p>Luckily, the package also has a <code>summarySEwithin</code> function that provides correct <em>SE</em>s.
+Here we specify the measurement, what variable specifies the within-subjects condition, and, crucially, the variable that signals that the measurements come from the same participant.
+Note that we used the data set with aggregated means.</p>
+<pre class="r"><code>dat_summary3 &lt;- summarySEwithin(dat_agg,
+                                measurevar = &quot;mean_agg&quot;,
+                                withinvars = &quot;condition&quot;, 
+                                idvar = &quot;pp&quot;)
+
+dat_summary3</code></pre>
+<pre><code>##   condition  N mean_agg       sd        se       ci
+## 1         A 30 42.11566 8.102615 1.4793284 3.025566
+## 2         B 30 45.89995 5.323399 0.9719152 1.987790
+## 3         C 30 50.47729 8.058000 1.4711828 3.008907</code></pre>
+<p>Now, finally, we can create our plot with correct <em>SE</em>.
+You can decide for yourself whether you want error bars that represent the 95%CI of the <em>SE</em>, or whether the error bars represent one <em>SE</em>.
+I prefer plotting the 95%CI.</p>
+<pre class="r"><code>ggplot(dat, aes(x = condition, y = score)) + 
+  geom_violin() + 
+  geom_point(aes(y = mean_agg), data = dat_summary3, color = &quot;black&quot;) +
+  geom_errorbar(aes(y = mean_agg, ymin = mean_agg - ci, ymax = mean_agg + ci),
+                    color = &quot;black&quot;, width = 0.05, data = dat_summary2)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/fourth_violin-1.png" width="672" /></p>
+<p>While we’re at it, let’s make the graph a bit prettier.</p>
+<pre class="r"><code>ggplot(dat, aes(x = condition, y = score)) + 
+  geom_violin(aes(fill = condition), color = &quot;grey15&quot;) + 
+  geom_point(aes(y = mean_agg), data = dat_summary3, color = &quot;black&quot;) +
+  geom_errorbar(aes(y = mean_agg, ymin = mean_agg - ci, ymax = mean_agg + ci),
+                    color = &quot;black&quot;, width = 0.05, data = dat_summary2) + 
+  labs(x = &quot;Condition&quot;, y = &quot;Score&quot;) +
+  theme_classic() + 
+  scale_color_grey() + 
+  scale_fill_grey() + 
+  theme(legend.position = &quot;none&quot;, 
+        strip.background.x = element_blank())</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/pretty_violin-1.png" width="672" /></p>
+<p>If we’d present this figure in a paper though, we should explicitly state in the figure caption what those error bars represent.
+After all, we’re doing something strange here: we show all of the raw data (i.e., violin plots) plus means, yet the uncertainty arround these means is not that of the raw data, but expressed taking into account the design that produced these data (i.e., within-subject design).</p>
+<p>For example, we could write something along these lines:</p>
+<blockquote>
+<p>Violin plots represent the distribution of the data per condition. Black points represent the means; bars of these points represent the 95% CI of the within-subject standard error (Morey, 2008), calculated with the Rmisc package (Hope, 2013).</p>
+</blockquote>
+<p>Alright, that’s it.
+Thanks a lot to <a href="https://twitter.com/dalejbarr">Dale Barr</a> for proof reading this post and helpful feedback.
+If you have suggestions, spotted a mistake, or want to tell me I should stay away from R, let me know in the comments or via <a href="https://twitter.com/NiklasJohannes">Twitter</a>.</p>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>Dramatic, I know.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>If you’re a fellow non-native speaker: that’s number below the line. I have to google that every time.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Saw that one coming, didn’t you? <img src="https://media.giphy.com/media/JqDtpybbGaGtMiqOQj/giphy.gif" /><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
