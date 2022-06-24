@@ -14,7 +14,7 @@ organizations:
     url: https://www.ox.ac.uk/
 
 # Short bio (displayed in user profile at end of posts)
-bio: I research digital technology, well-being, and performance.
+bio: I researchu digital technology, well-being, and performance.
 
 # Interests to show in About widget
 interests:
@@ -80,5 +80,3 @@ highlight_name: true
 Hello there. I'm a researcher at the [Oxford Internet Institute](https://www.oii.ox.ac.uk/). Here, I'm part of the research program [Adolescent Well-Being in the Digital Age](https://www.oii.ox.ac.uk/research/projects/programme-on-adolescent-well-being-in-the-digital-age/), where I study (surprise!) the effects of technology use on well-being and performance. 
 
 Technology and its effects have long been a focus of my work. During my PhD, I focused on the effects of always being connected via our phones on attention and cognitive control. These days, I've shifted that focus to video games and how play impacts people's mental health. I rely on large-scale (behavioral) data analysis, experiments, experience sampling, and surveys.
-
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/cv-niklas-johannes.pdf" "newtab" >}}resumé{{< /staticref >}} (but only if you feel like it).
