@@ -25,15 +25,15 @@ content:
   #     captcha: false
 
   # Contact details (edit or remove options as required)
-  email: niklas.johannes@oii.ox.ac.uk
+  email: niklas.hello@mailmasker.coom
   # phone: 888 888 88 88
-  address:
-    street: 1 St Giles
-    city: Oxford
-    region:
-    postcode: 'OX1 3JS'
-    country: United Kingdom
-    country_code: UK
+  # address:
+    # street: 1 St Giles
+    # city: Oxford
+    # region:
+    # postcode: 'OX1 3JS'
+    # country: United Kingdom
+    # country_code: UK
   # coordinates:
   #   latitude: '37.4275'
   #   longitude: '-122.1697'

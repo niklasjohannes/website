@@ -6,22 +6,22 @@ title: Niklas Johannes
 superuser: true
 
 # Role/position/tagline
-role: Behavioral scientist
+role: Behavioral Scientist
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: University of Oxford
-    url: https://www.ox.ac.uk/
+  - name: Kroo
+    url: https://kroo.com/
 
 # Short bio (displayed in user profile at end of posts)
-bio: I researchu digital technology, well-being, and performance.
+bio: Research in FinTech.
 
 # Interests to show in About widget
 interests:
   - Digital technology
   - Well-being
   - Performance
-  - Meta-science
+  - Stats and data science
 
 # Education to show in About widget
 education:
@@ -43,7 +43,7 @@ education:
 social:
   - icon: envelope
     icon_pack: fas
-    link: "mailto:niklas.johannes@oii.ox.ac.uk"
+    link: "mailto:niklas.hello@mailmasker.com"
   - icon: twitter
     icon_pack: fab
     link: https://twitter.com/NiklasJohannes
@@ -77,6 +77,4 @@ email: ''
 highlight_name: true
 ---
 
-Hello there. I'm a researcher at the [Oxford Internet Institute](https://www.oii.ox.ac.uk/). Here, I'm part of the research program [Adolescent Well-Being in the Digital Age](https://www.oii.ox.ac.uk/research/projects/programme-on-adolescent-well-being-in-the-digital-age/), where I study (surprise!) the effects of technology use on well-being and performance. 
-
-Technology and its effects have long been a focus of my work. During my PhD, I focused on the effects of always being connected via our phones on attention and cognitive control. These days, I've shifted that focus to video games and how play impacts people's mental health. I rely on large-scale (behavioral) data analysis, experiments, experience sampling, and surveys.
+Hello there. I'm an academic-turned-user-researcher at [Kroo](https://kroo.com/). Before working in FinTech, I studied the effects of video games, social media, and smartphones on well-being and performance. These days, I lead both qualitative (usability tests, ethnographic interviews, focus groups) and quantitative research (surveys, A/B testing) at Kroo.
