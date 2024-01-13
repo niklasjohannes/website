@@ -22,11 +22,11 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: Senior User Researcher
+  - title: Lead Researcher
     company: Kroo Bank
     company_url: 'https://www.kroo/'
     company_logo: 
-    location: Oxford, United Kindgom
+    location: London, United Kindgom
     date_start: '2022-12-12'
     date_end: ''
     description: |2-
@@ -34,6 +34,16 @@ experience:
         
         * Leading qualitative and quantitative research in collaboration with teams across the company
         * Deliver product insights through data science and analytics
+        * Responsible for establishing research operations at a start-up
+
+  - title: Senior User Researcher
+    company: Kroo Bank
+    company_url: 'https://www.kroo/'
+    company_logo: 
+    location: London, United Kindgom
+    date_start: '2022-12-12'
+    date_end: '2023-12-01'
+    description:
 
   - title: Postdoc
     company: University of Oxford
