@@ -16,13 +16,7 @@ main:
   - name: Posts
     url: '#posts'
     weight: 40
-  - name: Dissertation
-    url: uploads/dissertation-niklas-johannes.pdf
-    weight: 50
-  - name: CV
-    url: uploads/cv-niklas-johannes.pdf
-    weight: 60
   - name: Contact
     url: '#contact'
-    weight: 70
+    weight: 50
 

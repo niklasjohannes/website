@@ -6,7 +6,7 @@ title: Niklas Johannes
 superuser: true
 
 # Role/position/tagline
-role: Behavioral Scientist
+role: Data Scientist
 
 # Organizations/Affiliations to show in About widget
 organizations:
@@ -14,7 +14,7 @@ organizations:
     url: https://kroo.com/
 
 # Short bio (displayed in user profile at end of posts)
-bio: Research in FinTech.
+bio: Data Scientist in FinTech.
 
 # Interests to show in About widget
 interests:
@@ -77,4 +77,4 @@ email: ''
 highlight_name: true
 ---
 
-Hello there. I'm an academic-turned-user-researcher at [Kroo](https://kroo.com/). Before working in FinTech, I studied the effects of video games, social media, and smartphones on well-being and performance. These days, I lead both qualitative (usability tests, ethnographic interviews, focus groups) and quantitative research (surveys, A/B testing) at Kroo.
+Hello there. I'm an academic-turned-data-scientist at [Kroo](https://kroo.com/). Before working in FinTech, I studied the effects of video games, social media, and smartphones on well-being and performance. These days, I do data science and quantitative research at Kroo.
